@@ -1,0 +1,7 @@
+starting file import from: /var/tmp/pveupload-4abeed85f279511d30bb3d86e4507a6a
+target node: a10a5a7764ef
+target file: /var/lib/vz/template/iso/netboot.xyz.iso
+file size is: 2392064
+command: cp -- /var/tmp/pveupload-4abeed85f279511d30bb3d86e4507a6a /var/lib/vz/template/iso/netboot.xyz.iso
+finished file import successfully
+TASK OK

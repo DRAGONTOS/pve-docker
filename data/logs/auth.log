@@ -1,0 +1,43 @@
+2024-04-07T18:47:07.675264+00:00 a10a5a7764ef sshd[99]: Server listening on 0.0.0.0 port 22.
+2024-04-07T18:47:07.675316+00:00 a10a5a7764ef sshd[99]: Server listening on :: port 22.
+2024-04-07T18:47:07.732205+00:00 a10a5a7764ef systemd-logind[89]: Failed to pin reserved VT: Permission denied
+2024-04-07T18:47:07.732276+00:00 a10a5a7764ef systemd-logind[89]: New seat seat0.
+2024-04-07T18:47:07.732312+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 1: Permission denied
+2024-04-07T18:47:07.732339+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 2: Permission denied
+2024-04-07T18:47:07.732362+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 3: Permission denied
+2024-04-07T18:47:07.732386+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 4: Permission denied
+2024-04-07T18:47:07.732411+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 5: Permission denied
+2024-04-07T18:47:07.732443+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 6: Permission denied
+2024-04-07T18:47:28.774343+00:00 a10a5a7764ef login[191]: pam_env(login:session): Unable to open env file: /etc/default/locale: No such file or directory
+2024-04-07T18:47:28.775027+00:00 a10a5a7764ef login[191]: pam_unix(login:session): session opened for user root(uid=0) by (uid=0)
+2024-04-07T18:47:28.775956+00:00 a10a5a7764ef login[196]: ROOT LOGIN  on '/dev/pts/0'
+2024-04-07T18:48:33.618714+00:00 a10a5a7764ef sshd[96]: Server listening on 0.0.0.0 port 22.
+2024-04-07T18:48:33.618832+00:00 a10a5a7764ef sshd[96]: Server listening on :: port 22.
+2024-04-07T18:48:33.682838+00:00 a10a5a7764ef systemd-logind[89]: Failed to pin reserved VT: Permission denied
+2024-04-07T18:48:33.682906+00:00 a10a5a7764ef systemd-logind[89]: New seat seat0.
+2024-04-07T18:48:33.682951+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 1: Permission denied
+2024-04-07T18:48:33.682976+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 2: Permission denied
+2024-04-07T18:48:33.682999+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 3: Permission denied
+2024-04-07T18:48:33.683023+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 4: Permission denied
+2024-04-07T18:48:33.683049+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 5: Permission denied
+2024-04-07T18:48:33.683074+00:00 a10a5a7764ef systemd-logind[89]: Failed to preallocate VT 6: Permission denied
+2024-04-07T18:49:23.612739+00:00 a10a5a7764ef sshd[93]: Server listening on 0.0.0.0 port 22.
+2024-04-07T18:49:23.612795+00:00 a10a5a7764ef sshd[93]: Server listening on :: port 22.
+2024-04-07T18:49:23.666606+00:00 a10a5a7764ef systemd-logind[86]: Failed to pin reserved VT: Permission denied
+2024-04-07T18:49:23.666659+00:00 a10a5a7764ef systemd-logind[86]: New seat seat0.
+2024-04-07T18:49:23.666679+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 1: Permission denied
+2024-04-07T18:49:23.666696+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 2: Permission denied
+2024-04-07T18:49:23.666711+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 3: Permission denied
+2024-04-07T18:49:23.666726+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 4: Permission denied
+2024-04-07T18:49:23.666762+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 5: Permission denied
+2024-04-07T18:49:23.666778+00:00 a10a5a7764ef systemd-logind[86]: Failed to preallocate VT 6: Permission denied
+2024-04-07T18:51:01.813034+00:00 a10a5a7764ef sshd[98]: Server listening on 0.0.0.0 port 22.
+2024-04-07T18:51:01.813168+00:00 a10a5a7764ef sshd[98]: Server listening on :: port 22.
+2024-04-07T18:51:01.865606+00:00 a10a5a7764ef systemd-logind[87]: Failed to pin reserved VT: Permission denied
+2024-04-07T18:51:01.865649+00:00 a10a5a7764ef systemd-logind[87]: New seat seat0.
+2024-04-07T18:51:01.865673+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 1: Permission denied
+2024-04-07T18:51:01.865689+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 2: Permission denied
+2024-04-07T18:51:01.865704+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 3: Permission denied
+2024-04-07T18:51:01.865719+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 4: Permission denied
+2024-04-07T18:51:01.865735+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 5: Permission denied
+2024-04-07T18:51:01.865752+00:00 a10a5a7764ef systemd-logind[87]: Failed to preallocate VT 6: Permission denied

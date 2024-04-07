@@ -1,0 +1,18 @@
+update-alternatives 2024-04-07 18:47:08: run with --set ebtables /usr/sbin/ebtables-legacy
+update-alternatives 2024-04-07 18:47:08: status of link group /usr/sbin/ebtables set to manual
+update-alternatives 2024-04-07 18:47:08: link group ebtables updated to point to /usr/sbin/ebtables-legacy
+update-alternatives 2024-04-07 18:47:08: run with --set iptables /usr/sbin/iptables-legacy
+update-alternatives 2024-04-07 18:47:08: status of link group /usr/sbin/iptables set to manual
+update-alternatives 2024-04-07 18:47:08: link group iptables updated to point to /usr/sbin/iptables-legacy
+update-alternatives 2024-04-07 18:47:08: run with --set ip6tables /usr/sbin/ip6tables-legacy
+update-alternatives 2024-04-07 18:47:08: status of link group /usr/sbin/ip6tables set to manual
+update-alternatives 2024-04-07 18:47:08: link group ip6tables updated to point to /usr/sbin/ip6tables-legacy
+update-alternatives 2024-04-07 18:48:34: run with --set ebtables /usr/sbin/ebtables-legacy
+update-alternatives 2024-04-07 18:48:34: run with --set iptables /usr/sbin/iptables-legacy
+update-alternatives 2024-04-07 18:48:34: run with --set ip6tables /usr/sbin/ip6tables-legacy
+update-alternatives 2024-04-07 18:49:24: run with --set ebtables /usr/sbin/ebtables-legacy
+update-alternatives 2024-04-07 18:49:24: run with --set iptables /usr/sbin/iptables-legacy
+update-alternatives 2024-04-07 18:49:24: run with --set ip6tables /usr/sbin/ip6tables-legacy
+update-alternatives 2024-04-07 18:51:02: run with --set ebtables /usr/sbin/ebtables-legacy
+update-alternatives 2024-04-07 18:51:02: run with --set iptables /usr/sbin/iptables-legacy
+update-alternatives 2024-04-07 18:51:02: run with --set ip6tables /usr/sbin/ip6tables-legacy

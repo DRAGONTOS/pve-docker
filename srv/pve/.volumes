@@ -1,0 +1,4 @@
+${BASE_PATH}/data/logs:/var/log
+${BASE_PATH}/data/pve_cluster:/var/lib/pve-cluster
+${BASE_PATH}/data/pve_manager:/var/lib/pve-manager
+${BASE_PATH}/data/bin:/srv/bin
