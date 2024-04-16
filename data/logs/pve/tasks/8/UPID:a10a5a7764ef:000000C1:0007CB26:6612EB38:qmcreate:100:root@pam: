@@ -1,3 +1,0 @@
-Formatting '/var/lib/vz/images/100/vm-100-disk-0.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off preallocation=metadata compression_type=zlib size=34359738368 lazy_refcounts=off refcount_bits=16
-virtio0: successfully created disk 'local:100/vm-100-disk-0.qcow2,iothread=1,size=32G'
-TASK OK

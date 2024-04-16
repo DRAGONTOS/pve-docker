@@ -1,14 +1,9 @@
-FROM debian:bookworm
+# syntax=docker/dockerfile:1
+FROM quay.io/toolbx-images/debian-toolbox:12
 
-ENV PVE_VERSION=8.0.4 \
+ENV PVE_VERSION=8.1 \
     SERVICE=pve-docker \
     DEBIAN_FRONTEND=noninteractive
-
-LABEL maintainer="docker-dario@neomediatech.it" \ 
-      org.label-schema.version=$PVE_VERSION \
-      org.label-schema.vcs-type=Git \
-      org.label-schema.vcs-url=https://github.com/Neomediatech/${SERVICE} \
-      org.label-schema.maintainer=Neomediatech
 
 # set apt config
 RUN echo 'APT::Get::Assume-Yes "1";' > /etc/apt/apt.conf.d/00-custom && \
@@ -18,10 +13,18 @@ RUN echo 'APT::Get::Assume-Yes "1";' > /etc/apt/apt.conf.d/00-custom && \
 RUN apt-get update && \
     apt-get dist-upgrade
 
-# install base pkg
-RUN apt-get install wget systemctl nano vim curl gnupg ca-certificates rsyslog net-tools iputils-ping
+RUN \
+  echo "**** install runtime packages ****" && \
+  apt update && apt install -y logrotate neovim netcat-openbsd sudo openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
+  echo "**** setup openssh environment ****" && \
+  useradd -m rander && \
+  usermod --shell /bin/bash rander && \
+  rm -rf \
+    /tmp/* \
+    $HOME/.cache
 
-# add PVE repository
+## proxmox
+#Add the Proxmox VE repository:
 RUN wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg && \
     echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-free.list
 
@@ -78,17 +81,21 @@ RUN apt-get update && \
 #set (temporary) password for root
 RUN echo "root:root"|chpasswd
 
+RUN systemctl enable pvenetcommit.service pve-firewall 
+
+
+# add local files
+EXPOSE 2222
+EXPOSE 8006
+
 COPY entrypoint.sh /
 
-RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
-    chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-RUN systemctl disable pvestatd pvefw-logger corosync spiceproxy getty@tty1 postfix ssh.service pve-ha-lrm.service pve-ha-crm.service && \
-    systemctl disable pve-firewall.service pvescheduler.service spiceproxy.service || echo ok && \
-    systemctl enable rsyslog
+RUN mkdir -p /run/ssh systemctl enable ssh 
 
 #use setup.sh to start proxmox service
 STOPSIGNAL SIGINT
 ENTRYPOINT [ "/entrypoint.sh" ]
+VOLUME /config
 CMD [ "/lib/systemd/systemd", "log-level=info", "unit=sysinit.target"]
-

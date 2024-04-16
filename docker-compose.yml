@@ -1,23 +1,47 @@
+networks:
+  netvm:
+    external: true
+    name: netvm
+
 services:
-  pveowo:
-    image: neomediatech/pve:latest
-    #build: ./minecraft-docker
-    #command: ["java", "-Xmx2048M", "-jar", "server.jar", "true"]
+  openssh-server:
+    image: ssh-custom
+    build: ./pve
+    container_name: sshcustom-server
     privileged: true
-    env_file:
-      - .env
-    devices:
-      - "/dev/kvm"
-      - "/dev/fuse"
-        #OPTIONS="$OPTIONS --privileged --device /dev/fuse --device=/dev/kvm --add-host $NAME:127.0.0.1"
-    extra_hosts:
-      - "pveowo:127.0.0.1"
+    hostname: pve-owo
+    networks:
+      netvm:
+        ipv4_address: 192.168.12.2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUDO_ACCESS=true #optional
+      - PASSWORD_ACCESS=true #optional
+      - USER_PASSWORD=password #optional
+      - USER_PASSWORD_FILE=/path/to/file #optional
+      - USER_NAME=rander #optional
+      - LOG_STDOUT= #optional
     volumes:
-      - "./data:/root/minecraft"
       - "./data/logs:/var/log"
-      - "./data/pve_cluster:/var/lib/pve-cluster"
-      - "./data/pve_manager:/var/lib/pve-manager"
+      - "./data/pve/pve_cluster:/var/lib/pve-cluster"
+      - "./data/pve/pve_manager:/var/lib/pve-manager"
       - "./data/bin:/srv/bin"
+      - "./data/disks:/var/lib/vz"
+      - "./data/network/interfaces:/etc/network/interfaces"
+      - "/etc/resolv.conf:/etc/resolv.conf"
+    restart: unless-stopped
+      
+  socat-server:
+    image: socat-custom
+    build: ./sc 
+    container_name: socat-server
+    privileged: true
+    networks:
+      netvm:
+        ipv4_address: 192.168.12.3
     ports:
-      - "8006:8006"
-    restart: always
+      - 8006:8006
+      - 2222:22
+    restart: unless-stopped

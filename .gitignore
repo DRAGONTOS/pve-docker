@@ -1,0 +1,10 @@
+./data/disks/.*
+./data/disks/*
+./data/bin/.*
+./data/bin/*
+./data/logs/.*
+./data/logs/*
+./data/pve_cluster/.*
+./data/pve_cluster/*
+./data/pve_manager/.*
+./data/pve_manager/*
