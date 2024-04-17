@@ -83,6 +83,7 @@ RUN echo "root:root"|chpasswd
 
 RUN systemctl enable pvenetcommit.service pve-firewall 
 
+RUN mkdir -p /var/lib/dhcp && apt update && apt install ifupdown2 -y || true && mkdir -p /run/sshd && systemctl enable networking
 
 # add local files
 EXPOSE 2222

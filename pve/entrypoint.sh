@@ -38,15 +38,10 @@ rm -f /etc/apt/sources.list.d/pve-enterprise.list
 
 docker_verify_minimum_env
 
-mkdir -p /var/lib/dhcp
-apt update && apt install ifupdown2 -y || true
 echo 'rander:12345' | chpasswd
 mkdir -p /run/sshd
 chmod 755 /run/sshd
 /usr/sbin/sshd
-
-systemctl enable networking
-
 
 #ip route add default via 192.168.0.2/20
 #bridge
