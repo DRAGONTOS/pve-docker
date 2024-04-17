@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 FROM quay.io/toolbx-images/debian-toolbox:12
 
 ENV PVE_VERSION=8.1 \
@@ -15,7 +14,7 @@ RUN apt-get update && \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  apt update && apt install -y logrotate neovim netcat-openbsd sudo openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
+  apt update && apt install -y isc-dhcp-server kitty-terminfo btop logrotate neovim netcat-openbsd sudo openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
   echo "**** setup openssh environment ****" && \
   useradd -m rander && \
   usermod --shell /bin/bash rander && \
@@ -81,9 +80,9 @@ RUN apt-get update && \
 #set (temporary) password for root
 RUN echo "root:root"|chpasswd
 
-RUN systemctl enable pvenetcommit.service pve-firewall 
+RUN systemctl enable pvenetcommit.service pve-firewall isc-dhcp-server 
 
-RUN mkdir -p /var/lib/dhcp && apt update && apt install ifupdown2 -y || true && mkdir -p /run/sshd && systemctl enable networking
+RUN mkdir -p /var/lib/dhcp && apt update && apt install ifupdown2 -y || true 
 
 # add local files
 EXPOSE 2222
@@ -92,8 +91,6 @@ EXPOSE 8006
 COPY entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
-
-RUN mkdir -p /run/ssh systemctl enable ssh 
 
 #use setup.sh to start proxmox service
 STOPSIGNAL SIGINT

@@ -1,0 +1,158 @@
+# The format of this file is documented in the dhcpd.leases(5) manual page.
+# This lease file was written by isc-dhcp-4.4.3-P1
+
+# authoring-byte-order entry is generated, DO NOT DELETE
+authoring-byte-order little-endian;
+
+server-duid "\000\001\000\001-\261\365a\002B\300\250\014\002";
+
+lease 192.168.12.20 {
+  starts 3 2024/04/17 02:53:08;
+  ends 3 2024/04/17 03:03:08;
+  cltt 3 2024/04/17 02:53:08;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  client-hostname "rander-standardpc";
+}
+lease 192.168.12.21 {
+  starts 3 2024/04/17 02:55:15;
+  ends 3 2024/04/17 03:05:15;
+  cltt 3 2024/04/17 02:55:15;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  set vendor-class-identifier = "Linux ipconfig";
+}
+lease 192.168.12.20 {
+  starts 3 2024/04/17 02:58:38;
+  ends 3 2024/04/17 03:08:38;
+  cltt 3 2024/04/17 02:58:38;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+  client-hostname "manjaro";
+}
+lease 192.168.12.20 {
+  starts 3 2024/04/17 03:03:38;
+  ends 3 2024/04/17 03:13:38;
+  cltt 3 2024/04/17 03:03:38;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+  client-hostname "manjaro";
+}
+lease 192.168.12.21 {
+  starts 3 2024/04/17 02:55:15;
+  ends 3 2024/04/17 03:05:15;
+  tstp 3 2024/04/17 03:05:15;
+  cltt 3 2024/04/17 02:55:15;
+  binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  set vendor-class-identifier = "Linux ipconfig";
+}
+lease 192.168.12.22 {
+  starts 3 2024/04/17 03:07:42;
+  ends 3 2024/04/17 03:17:42;
+  cltt 3 2024/04/17 03:07:42;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  uid "\001\274$\021\330\267\247";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+}
+lease 192.168.12.23 {
+  starts 3 2024/04/17 03:08:09;
+  ends 3 2024/04/17 03:18:09;
+  cltt 3 2024/04/17 03:08:09;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  client-hostname "(none)";
+}
+lease 192.168.12.20 {
+  starts 3 2024/04/17 03:08:38;
+  ends 3 2024/04/17 03:18:38;
+  cltt 3 2024/04/17 03:08:38;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+  client-hostname "manjaro";
+}
+lease 192.168.12.22 {
+  starts 3 2024/04/17 03:09:55;
+  ends 3 2024/04/17 03:19:55;
+  cltt 3 2024/04/17 03:09:55;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  uid "\001\274$\021\330\267\247";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+  client-hostname "ubuntu";
+}
+lease 192.168.12.23 {
+  starts 3 2024/04/17 03:12:43;
+  ends 3 2024/04/17 03:22:43;
+  cltt 3 2024/04/17 03:12:43;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  set vendor-class-identifier = "Linux ipconfig";
+}
+lease 192.168.12.20 {
+  starts 3 2024/04/17 03:13:38;
+  ends 3 2024/04/17 03:23:38;
+  cltt 3 2024/04/17 03:13:38;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+  client-hostname "manjaro";
+}
+lease 192.168.12.22 {
+  starts 3 2024/04/17 03:09:55;
+  ends 3 2024/04/17 03:19:55;
+  tstp 3 2024/04/17 03:19:55;
+  cltt 3 2024/04/17 03:12:09;
+  binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  uid "\001\274$\021\330\267\247";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+}
+lease 192.168.12.23 {
+  starts 3 2024/04/17 03:12:43;
+  ends 3 2024/04/17 03:22:43;
+  tstp 3 2024/04/17 03:22:43;
+  cltt 3 2024/04/17 03:12:43;
+  binding state free;
+  hardware ethernet bc:24:11:d8:b7:a7;
+  set vendor-class-identifier = "Linux ipconfig";
+}
+lease 192.168.12.20 {
+  starts 3 2024/04/17 03:13:38;
+  ends 3 2024/04/17 03:23:38;
+  tstp 3 2024/04/17 03:23:38;
+  cltt 3 2024/04/17 03:13:38;
+  binding state free;
+  hardware ethernet bc:24:11:35:3e:af;
+  uid "\001\274$\0215>\257";
+  set vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001";
+}
