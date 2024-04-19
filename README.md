@@ -35,5 +35,4 @@ If everything seems fine (no errors), then you can run them with -d!
 
 # Contributors
 - DRAGONTOS
-
-
+- feddar
