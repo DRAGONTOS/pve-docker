@@ -13,17 +13,17 @@ sudo docker compose build
 ```
 And you will need to do that too for Socat. Just run this:
 ```bash
-sudo docker compose --project-directory socat build
+cd socat && sudo docker compose build && cd ..
 ```
 
 ## Testing
 Now that they are built you can run this:
 ```bash
-docker compose up
+sudo docker compose up
 ```
 And to test Socat, just run this:
 ```bash
-docker compose --project-directory socat up
+cd socat && sudo docker compose up && cd ..
 ```
 If everything seems fine (no errors), then you can run them with -d!
 
