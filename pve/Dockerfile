@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  apt update && apt install -y isc-dhcp-server kitty-terminfo btop logrotate neovim netcat-openbsd sudo openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
+  apt-get update && apt-get install -y isc-dhcp-server kitty-terminfo btop logrotate neovim netcat-openbsd openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
   echo "**** setup openssh environment ****" && \
   useradd -m rander && \
   usermod --shell /bin/bash rander && \
@@ -82,7 +82,7 @@ RUN echo "root:root"|chpasswd
 
 RUN systemctl enable pvenetcommit.service pve-firewall isc-dhcp-server 
 
-RUN mkdir -p /var/lib/dhcp && apt update && apt install ifupdown2 -y || true 
+RUN mkdir -p /var/lib/dhcp && apt-get update && apt-get install ifupdown2 -y || true 
 
 # add local files
 EXPOSE 2222

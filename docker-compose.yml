@@ -4,10 +4,10 @@ networks:
     name: netvm
 
 services:
-  pve-server2:
-    image: pve-custom2
+  pve-server:
+    image: pve-custom
     build: ./pve
-    container_name: pve-server2
+    container_name: pve-server
     privileged: true
     hostname: pve-owo
     networks:

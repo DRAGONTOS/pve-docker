@@ -16,7 +16,6 @@ RUN apt-get update && \
 RUN \
   echo "**** install runtime packages ****" && \
   apt update && apt install -y socat logrotate btop kitty-terminfo neovim netcat-openbsd sudo wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
-  echo "**** setup openssh environment ****" && \
   rm -rf \
     /tmp/* \
     $HOME/.cache
@@ -24,16 +23,10 @@ RUN \
 #set (temporary) password for root
 RUN echo "root:root"|chpasswd
 
-# add local files
-EXPOSE 2222
-EXPOSE 8006
-
 COPY entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 
-#use setup.sh to start proxmox service
 STOPSIGNAL SIGINT
 ENTRYPOINT [ "/entrypoint.sh" ]
-VOLUME /config
 #CMD [ "/lib/systemd/systemd", "log-level=info", "unit=sysinit.target"]

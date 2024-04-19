@@ -2,6 +2,7 @@
 set -eo pipefail
 shopt -s nullglob
 ADMIN_PASSWORD="nyaowo"
+USER_PASSWORD="nyaowo"
 
 # logging functions
 pve_log() {
@@ -21,8 +22,8 @@ pve_error() {
 
 # Verify that the minimally required password settings are set for new databases.
 docker_verify_minimum_env() {
-	if [ -z "$ADMIN_PASSWORD" ]; then
-		pve_error $'Password option is not specified\n\tYou need to specify an ADMIN_PASSWORD'
+  if [ -z "$ADMIN_PASSWORD" ] && [ "$USER_PASSWORD" ]; then
+		pve_error $'Password option is not specified\n\tYou need to specify an ADMIN/USER_PASSWORD'
 	fi
 }
 
@@ -33,21 +34,21 @@ systemctl start networking && systemctl start isc-dhcp-server &
 
 
 docker_setup_pve() {
-    #Set pve user
+    #Set root user
     echo "root:$ADMIN_PASSWORD"|chpasswd
+    #Set user
+    echo "pve:$USER_PASSWORD"|chpasswd
 }
 
-systemctl start networking && systemctl start isc-dhcp-server &
 RELAY_HOST=${RELAY_HOST:-ext.home.local}
 sed -i "s/RELAY_HOST/$RELAY_HOST/" /etc/postfix/main.cf
 PVE_ENTERPRISE=${PVE_ENTERPRISE:-no}
 rm -f /etc/apt/sources.list.d/pve-enterprise.list
 
+# functions
 docker_verify_minimum_env
-
-echo 'rander:12345' | chpasswd
-
 docker_setup_pve
+sleep 10 && networking_misc &
 
 if [ ! -d /var/log/pveproxy ]; then
     mkdir -p /var/log/pveproxy
@@ -58,13 +59,10 @@ if [ -n "$ENABLE_PVE_FIREWALL" -a "$ENABLE_PVE_FIREWALL" == "no" ]; then
     systemctl mask pve-firewall.service
 fi
 
-sleep 10 && networking_misc &
 echo "Running PVE..."
 exec "$@"
 
 while true; do
     # Your commands or checks here
-    sleep 60  # Adjust the sleep interval as needed
+    sleep 1m  # Adjust the sleep interval as needed
 done
-
-#exec gosu backup /usr/lib/x86_64-linux-gnu/proxmox-backup/proxmox-backup-proxy "$@"

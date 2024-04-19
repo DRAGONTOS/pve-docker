@@ -6,6 +6,12 @@ You might want to change the hostname in docker-compose.yml to something you lik
 You can change the './socat/data/socat.sh' and ips/ports you want to passtthrough. AND DONT FORGET TO DO THAT
 TOO IN THE DOCKER-COMPOSE.YML!!
 
+## Network setup
+You can set up the network with this:
+```bash
+sudo docker network create --ipam-driver default --subnet 192.168.12.0/24 netvm
+```
+
 ## Building the images
 We first need to build the images to do this:
 ```bash
