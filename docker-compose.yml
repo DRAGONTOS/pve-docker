@@ -4,10 +4,10 @@ networks:
     name: netvm
 
 services:
-  openssh-server:
-    image: ssh-custom
+  pve-server2:
+    image: pve-custom2
     build: ./pve
-    container_name: sshcustom-server
+    container_name: pve-server2
     privileged: true
     hostname: pve-owo
     networks:
@@ -17,12 +17,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - SUDO_ACCESS=true #optional
-      - PASSWORD_ACCESS=true #optional
-      - USER_PASSWORD=password #optional
-      - USER_PASSWORD_FILE=/path/to/file #optional
-      - USER_NAME=rander #optional
-      - LOG_STDOUT= #optional
     volumes:
       - "./data/logs:/var/log"
       - "./data/pve/pve_cluster:/var/lib/pve-cluster"
@@ -30,18 +24,8 @@ services:
       - "./data/bin:/srv/bin"
       - "./data/disks:/var/lib/vz"
       - "./data/network/interfaces:/etc/network/interfaces"
+      - "./data/network/dhcp/conf:/etc/dhcp"
+      - "./data/network/dhcp/dhcpd.leases:/var/lib/dhcp/dhcpd.leases"
+      - "./data/network/dhcp/int:/etc/default/isc-dhcp-server"
       - "/etc/resolv.conf:/etc/resolv.conf"
-    restart: unless-stopped
-      
-  socat-server:
-    image: socat-custom
-    build: ./sc 
-    container_name: socat-server
-    privileged: true
-    networks:
-      netvm:
-        ipv4_address: 192.168.12.3
-    ports:
-      - 8006:8006
-      - 2222:22
     restart: unless-stopped

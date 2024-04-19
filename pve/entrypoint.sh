@@ -26,11 +26,18 @@ docker_verify_minimum_env() {
 	fi
 }
 
+networking_misc() {
+mkdir /run/sshd && chmod 0755 /run/sshd && /usr/sbin/sshd &
+systemctl start networking && systemctl start isc-dhcp-server &
+}
+
+
 docker_setup_pve() {
     #Set pve user
     echo "root:$ADMIN_PASSWORD"|chpasswd
 }
 
+systemctl start networking && systemctl start isc-dhcp-server &
 RELAY_HOST=${RELAY_HOST:-ext.home.local}
 sed -i "s/RELAY_HOST/$RELAY_HOST/" /etc/postfix/main.cf
 PVE_ENTERPRISE=${PVE_ENTERPRISE:-no}
@@ -39,28 +46,6 @@ rm -f /etc/apt/sources.list.d/pve-enterprise.list
 docker_verify_minimum_env
 
 echo 'rander:12345' | chpasswd
-mkdir -p /run/sshd
-chmod 755 /run/sshd
-/usr/sbin/sshd
-
-#ip route add default via 192.168.0.2/20
-#bridge
-#brctl addbr vmbr0 eth1 
-#brctl addif vmbr0 eth1 
-#ip link set vmbr0 up
-
-# Start api first in background
-#echo -n "Starting Proxmox VE API..."
-#/usr/lib/x86_64-linux-gnu/proxmox-backup/proxmox-backup-api &
-#while true; do
-#    if [ ! -f /run/proxmox-backup/api.pid ]; then
-#        echo -n "..."
-#        sleep 3
-#    else
-#        break
-#    fi
-#done
-#echo "OK"
 
 docker_setup_pve
 
@@ -73,6 +58,7 @@ if [ -n "$ENABLE_PVE_FIREWALL" -a "$ENABLE_PVE_FIREWALL" == "no" ]; then
     systemctl mask pve-firewall.service
 fi
 
+sleep 10 && networking_misc &
 echo "Running PVE..."
 exec "$@"
 

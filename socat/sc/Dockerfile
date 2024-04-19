@@ -15,10 +15,8 @@ RUN apt-get update && \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  apt update && apt install -y socat logrotate neovim netcat-openbsd sudo openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
+  apt update && apt install -y socat logrotate btop kitty-terminfo neovim netcat-openbsd sudo wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
   echo "**** setup openssh environment ****" && \
-  useradd -m rander && \
-  usermod --shell /bin/bash rander && \
   rm -rf \
     /tmp/* \
     $HOME/.cache
