@@ -14,7 +14,6 @@ services:
         ipv4_address: 192.168.12.3
     ports:
       - 8006:8006
-      - 8007:8007
       - 2222:2222
     volumes:
       - "./data/socat.sh:/root/socat.sh"
