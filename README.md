@@ -17,7 +17,7 @@ sudo docker compose --project-directory socat build
 ```
 
 ## Testing
-Now that they are built, go back to the root (aka cd ../) and run this:
+Now that they are built you can run this:
 ```bash
 docker compose up
 ```
