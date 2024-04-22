@@ -15,7 +15,7 @@ RUN apt-get update && \
 
 RUN \
   echo "**** install runtime packages ****" && \
-  apt update && apt install -y socat logrotate btop kitty-terminfo neovim netcat-openbsd sudo wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
+  apt update && apt install -y socat logrotate btop kitty-terminfo neovim netcat-openbsd wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
   rm -rf \
     /tmp/* \
     $HOME/.cache
