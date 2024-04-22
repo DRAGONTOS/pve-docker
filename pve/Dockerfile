@@ -16,8 +16,8 @@ RUN \
   echo "**** install runtime packages ****" && \
   apt-get update && apt-get install -y isc-dhcp-server kitty-terminfo btop logrotate neovim netcat-openbsd openssh-server wget systemctl curl gnupg ca-certificates rsyslog net-tools iputils-ping && \
   echo "**** setup openssh environment ****" && \
-  useradd -m rander && \
-  usermod --shell /bin/bash rander && \
+  useradd -m pve && \
+  usermod --shell /bin/bash pve && \
   rm -rf \
     /tmp/* \
     $HOME/.cache
